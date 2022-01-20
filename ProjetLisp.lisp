@@ -56,3 +56,8 @@
         (t (eval sinon))
 ))
 
+
+
+(defun defnodelist (l)
+  (union l nodelist)
+)
