@@ -1,6 +1,5 @@
 # LeZooMISTique
-projetLisp
-Sur les animaux -> Doja cat MOOOOOOOOOOOOOOOOO
+Projet de lisp sur les réseaux sémantiques et les systémes experts
 
--> DOC 
-https://www.youtube.com/watch?v=dQw4w9WgXcQ
+## DOC 
+[Lien vers la doc](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
