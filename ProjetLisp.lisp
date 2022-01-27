@@ -18,6 +18,9 @@
                    )
 
 
+(defun put(symbol prop value)
+  (setf (get symbol prop) value))
+
 (defun membre (l a)
                    (cond ( (null l) nil)
                          ( (atom l) nil)
