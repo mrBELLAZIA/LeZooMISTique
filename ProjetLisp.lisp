@@ -61,7 +61,7 @@
 
 (defun nodelist ()
   NL)
-
+ 
 (defun relationlist ()
   RL)
 
@@ -73,3 +73,5 @@
 
 (defun defnodelist (l)
   (setq NL (union l (nodelist))))
+
+
