@@ -56,3 +56,24 @@
         (t (eval sinon))
 ))
 
+(setq NL nil)
+(setq RL nil)
+
+(defun nodelist ()
+  NL)
+
+(defun relationlist ()
+  RL)
+
+(defun nodep (n)
+  (membre (nodelist) n))
+
+(defun relationp (r)
+  (membre (relationlist) r))
+
+(defun defnodelist (l)
+  (setq NL (union l (nodelist))))
+
+(defun defnode (node)
+  (defnodelist node)
+)

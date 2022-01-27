@@ -73,3 +73,7 @@
 
 (defun defnodelist (l)
   (setq NL (union l (nodelist))))
+
+(defun defnode (node)
+  (defnodelist (list node))
+)
