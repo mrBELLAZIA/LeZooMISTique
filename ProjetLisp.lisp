@@ -19,7 +19,12 @@
 
 
 (defun put(symbol prop value)
-  (setf (get symbol prop) value))
+  (cond ((null (get symbol prop)) (setf (get symbol prop) (list value))) 
+        (t (setf (get symbol prop) (union (list value) (get symbol prop))))
+  )
+)
+;(defun put(symbol prop value)
+;  (setf (get symbol prop) value))
 
 (defun membre (l a)
                    (cond ( (null l) nil)
@@ -72,7 +77,7 @@
   (membre (nodelist) n))
 
 (defun relationpbis (r l)
-  (cond ((null l) nil)
+  (cond ((null l) nil)(put 'a 'mange 'herbe)
         ((not (equal (get (car l) r) nil)) t)
         (t (relationpbis r (cdr l)))
   )
@@ -88,13 +93,18 @@
   (defnodelist (list node))
 )
 (defun putrelation (n1 r n2)
-  (put n1 r n2))
+  (put n1 'rlist r)
+  (put n1 r n2)
+  (setq RL (union RL (list r))))
+
 
 ;tests
 
-(put 'chien 'pattes 4)
-(put 'cheval 'queue t)
-(put 'chat 'mignon t)
+(putrelation 'chien 'pattes 3)
+(putrelation 'cheval 'queue 1)
+(putrelation 'chat 'mignon 0)
 (defnodelist '(cheval chien chat))
   
 
+(defun test ()
+  nil)
