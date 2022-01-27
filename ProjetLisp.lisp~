@@ -77,3 +77,4 @@
 (defun defnode (node)
   (defnodelist node)
 )
+

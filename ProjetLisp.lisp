@@ -61,7 +61,7 @@
 
 (defun nodelist ()
   NL)
-
+ 
 (defun relationlist ()
   RL)
 
@@ -77,3 +77,4 @@
 (defun defnode (node)
   (defnodelist (list node))
 )
+
