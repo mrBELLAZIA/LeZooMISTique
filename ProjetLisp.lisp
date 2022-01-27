@@ -71,8 +71,15 @@
 (defun nodep (n)
   (membre (nodelist) n))
 
+(defun relationpbis (r l)
+  (cond ((null l) nil)
+        ((not (equal (get (car l) r) nil)) t)
+        (t (relationpbis r (cdr l)))
+  )
+)
+
 (defun relationp (r)
-  (membre (relationlist) r))
+  (relationpbis r NL))
 
 (defun defnodelist (l)
   (setq NL (union l (nodelist))))
@@ -80,4 +87,14 @@
 (defun defnode (node)
   (defnodelist (list node))
 )
+(defun putrelation (n1 r n2)
+  (put n1 r n2))
+
+;tests
+
+(put 'chien 'pattes 4)
+(put 'cheval 'queue t)
+(put 'chat 'mignon t)
+(defnodelist '(cheval chien chat))
+  
 
