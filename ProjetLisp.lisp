@@ -107,6 +107,10 @@
 (defun linkednodes (n)
   (reclinkednodes n (rlnoeuds n)))
 
+(defun getvalue (n r) 
+  (get n r))
+
+
 ;tests
 
 (putrelation 'chien 'pattes 3)
