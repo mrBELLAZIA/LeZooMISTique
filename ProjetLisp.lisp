@@ -110,10 +110,12 @@
 (defun getvalue (n r) 
   (get n r))
 
-
+(defun removevalue (n1 r n2)
+  (setf (get n1 r) (remove n2 (get n1 r)))
+)
 ;tests
 
 (putrelation 'chien 'pattes 3)
 (putrelation 'cheval 'queue 1)
-(putrelation 'chat 'mignon 0)
+(putrelation 'chat 'mignon '(a b))
 (defnodelist '(cheval chien chat))
