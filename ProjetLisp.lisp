@@ -97,10 +97,15 @@
   (put n1 r n2)
   (setq RL (union RL (list r))))
 
-;(defun linkedn (n l)
-  
-;(defun linkednodes (n)
-;  (linkedn n NL)
+(defun rlnoeuds (n)
+  (get n 'rlist))
+
+(defun reclinkednodes (n l)
+  (cond ((null l) nil)
+        (t (union (get n (car l)) (reclinkednodes n (cdr l))))))
+
+(defun linkednodes (n)
+  (reclinkednodes n (rlnoeuds n)))
 
 ;tests
 
