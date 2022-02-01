@@ -104,7 +104,3 @@
 (putrelation 'cheval 'queue 1)
 (putrelation 'chat 'mignon 0)
 (defnodelist '(cheval chien chat))
-  
-
-(defun test ()
-  nil)
