@@ -98,6 +98,10 @@
   (setq RL (union RL (list r))))
 
 
+(defun getvalue (n r) 
+  (get n r))
+
+
 ;tests
 
 (putrelation 'chien 'pattes 3)
