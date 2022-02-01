@@ -77,14 +77,14 @@
   (membre (nodelist) n))
 
 (defun relationpbis (r l)
-  (cond ((null l) nil)(put 'a 'mange 'herbe)
-        ((not (equal (get (car l) r) nil)) t)
+  (cond ((null l) nil)
+        ((equal (car l) r) t)
         (t (relationpbis r (cdr l)))
   )
 )
 
 (defun relationp (r)
-  (relationpbis r NL))
+  (relationpbis r RL))
 
 (defun defnodelist (l)
   (setq NL (union l (nodelist))))
@@ -97,6 +97,10 @@
   (put n1 r n2)
   (setq RL (union RL (list r))))
 
+;(defun linkedn (n l)
+  
+;(defun linkednodes (n)
+;  (linkedn n NL)
 
 ;tests
 
