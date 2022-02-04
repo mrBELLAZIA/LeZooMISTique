@@ -107,8 +107,6 @@
 (defun linkednodes (n)
   (reclinkednodes n (rlnoeuds n)))
 
-;(defun getvalue (n r) 
-;  (get n r))
 (defun getvalue (n r)
   (cond ((not (equal (get n r) nil)) (get n r))
         ((not (equal (get n 'est_un) nil)) (getvalue (car (get n 'est_un)) r))
@@ -119,9 +117,20 @@
 (defun removevalue (n1 r n2)
   (setf (get n1 r) (remove n2 (get n1 r)))
 )
-;tests
+;listes des noeuds
+(defnodelist '(felin canide oiseau bovin chat poisson poisson_chat mouette aigle boeuf chien loup))
 
-(putrelation 'chien 'pattes 3)
-(putrelation 'cheval 'queue 1)
-(putrelation 'chat 'mignon '(a b))
-(defnodelist '(cheval chien chat))
+;listes des relations
+(putrelation 'chien 'est_un 'canide)
+(putrelation 'chien 'attaque 'loup)
+(putrelation 'aigle 'attaque 'chien)
+(putrelation 'chien 'mange 'boeuf)
+(putrelation 'loup 'est_un 'canide)
+(putrelation 'aigle 'est_un 'oiseau)
+(putrelation 'mouette 'est_un 'oiseau)
+(putrelation 'mouette 'mange 'poisson_chat)
+(putrelation 'poisson_chat 'est_un 'poisson)
+(putrelation 'chat 'est_un 'felin)
+(putrelation 'chat 'mange 'poisson_chat)
+(putrelation 'boeuf 'a_peur 'chat)
+(putrelation 'boeuf 'est_un 'bovin)
