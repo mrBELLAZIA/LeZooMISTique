@@ -107,8 +107,14 @@
 (defun linkednodes (n)
   (reclinkednodes n (rlnoeuds n)))
 
-(defun getvalue (n r) 
-  (get n r))
+;(defun getvalue (n r) 
+;  (get n r))
+(defun getvalue (n r)
+  (cond ((not (equal (get n r) nil)) (get n r))
+        ((not (equal (get n 'est_un) nil)) (getvalue (car (get n 'est_un)) r))
+        (t nil)
+  )
+)
 
 (defun removevalue (n1 r n2)
   (setf (get n1 r) (remove n2 (get n1 r)))
