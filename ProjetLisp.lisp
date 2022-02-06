@@ -225,8 +225,8 @@
 ;INSTANCIATION SYSTEM EXPERT
 ;===========================
 
-(addFait 'Temp 37)
-(addFait 'fortefievre nil)
-(newrule 'r2 T '(and (prin1 'temperature?)(setq Temp (read))) 6)
-(newrule 'r1 '(> Temp 38) '(setq fortefievre T) 5)
-(setArret (setq CA '(not (null fortefievre))))
+(addFait 'anneeDansZoo 2)
+(addFait 'reproduit nil)
+(newrule 'anciennete T '(and (prin1 '(temps passe dans le zoo ?))(setq anneeDansZoo (read))) 6)
+(newrule 'peutReproduire '(> anneeDansZoo 5) '(setq reproduit  T) 5)
+(setArret '(not(null reproduit)))
