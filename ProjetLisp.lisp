@@ -130,6 +130,16 @@
 ;METHODE POUR LE SYSTEME EXPERT
 ;==============================
 (setq regles nil)
+(setq arret nil)
+(setq BF nil)
+
+(defun arretcond()
+  arret
+)
+
+(defun basefait()
+  BF
+)
 
 (defun reglesList ()
   regles)
@@ -140,7 +150,9 @@
   (setf (get rule  'action) actionP)
 )
 
-
+(defun setArret(conditionP)
+  (setq arret conditionP)
+)
 
 
 ;====================
