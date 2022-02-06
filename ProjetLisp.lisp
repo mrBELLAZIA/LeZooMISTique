@@ -148,10 +148,11 @@
 
 
 ;METHODES SUR RELGES
-(defun newrule(rule conditionP actionP)
+(defun newrule(rule conditionP actionP poids)
   (setq regles (union (list rule) (reglesList)))
   (setf (get rule  'condition) conditionP)
   (setf (get rule  'action) actionP)
+  (setf (get rule  'poids) poids)
 )
 
 ;METHODE SUR CONDITIONS D'ARRET
