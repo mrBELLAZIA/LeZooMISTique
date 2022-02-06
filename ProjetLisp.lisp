@@ -133,6 +133,8 @@
 (setq arret nil)
 (setq BF nil)
 
+
+;ACCESSEURS
 (defun arretcond()
   arret
 )
@@ -144,14 +146,23 @@
 (defun reglesList ()
   regles)
 
+
+;METHODES SUR RELGES
 (defun newrule(rule conditionP actionP)
   (setq regles (union (list rule) (reglesList)))
   (setf (get rule  'condition) conditionP)
   (setf (get rule  'action) actionP)
 )
 
+;METHODE SUR CONDITIONS D'ARRET
 (defun setArret(conditionP)
   (setq arret conditionP)
+)
+
+;METHODE SUR BASE DE FAITS
+(defun addFait(nom valeur)
+  (setq BF (union (list nom) (basefait)))
+  (setq nom valeur)
 )
 
 
