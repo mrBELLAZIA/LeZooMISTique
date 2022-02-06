@@ -163,6 +163,10 @@
   (eval (get rule 'action))
 )
 
+(defun appliquerRegle(regle)
+  (cond (( isActivable regle) (activer regle)))
+)
+
 ;METHODE SUR CONDITIONS D'ARRET
 (defun setArret(conditionP)
   (setq arret conditionP)
