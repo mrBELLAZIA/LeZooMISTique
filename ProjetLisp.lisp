@@ -1,3 +1,8 @@
+;==========================
+;METHODES RESEAU SEMANTIQUE
+;==========================
+
+
 (defun long (l)
                    (cond ( (null l) 0)
                          ( (atom l) nill)
@@ -23,8 +28,10 @@
         (t (setf (get symbol prop) (union (list value) (get symbol prop))))
   )
 )
-;(defun put(symbol prop value)
-;  (setf (get symbol prop) value))
+
+
+(defun putUnitaire(symbol prop value)
+  (setf (get symbol prop) value))
 
 (defun membre (l a)
                    (cond ( (null l) nil)
@@ -66,6 +73,7 @@
 
 (setq NL nil)
 (setq RL nil)
+
 
 (defun nodelist ()
   NL)
@@ -117,6 +125,27 @@
 (defun removevalue (n1 r n2)
   (setf (get n1 r) (remove n2 (get n1 r)))
 )
+
+;==============================
+;METHODE POUR LE SYSTEME EXPERT
+;==============================
+(setq regles nil)
+
+(defun reglesList ()
+  regles)
+
+(defun newrule(rule conditionP actionP)
+  (setq regles (union (list rule) (reglesList)))
+  (setf (get rule  'condition) conditionP)
+  (setf (get rule  'action) actionP)
+)
+
+
+
+
+;====================
+;INSTANCIATION RESEAU
+;====================
 ;listes des noeuds
 (defnodelist '(felin canide oiseau bovin chat poisson poisson_chat mouette aigle boeuf chien loup))
 
