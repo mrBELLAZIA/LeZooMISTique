@@ -159,6 +159,10 @@
   (eval (get rule 'condition))
 )
 
+(defun activer(rule)
+  (eval (get rule 'action))
+)
+
 ;METHODE SUR CONDITIONS D'ARRET
 (defun setArret(conditionP)
   (setq arret conditionP)
