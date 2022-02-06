@@ -176,7 +176,11 @@
 (defun addFait(nom valeur)
   (set nom  valeur)
   (setq BF (union (list nom) (basefait)))
+)
 
+;METHODE SUR LE MOTEUR D'INFERRENCE
+(defun run(listes)
+  (mapc 'appliquerRegle listes)
 )
 
 
@@ -200,3 +204,13 @@
 (putrelation 'chat 'mange 'poisson_chat)
 (putrelation 'boeuf 'a_peur 'chat)
 (putrelation 'boeuf 'est_un 'bovin)
+
+
+;===========================
+;INSTANCIATION SYSTEM EXPERT
+;===========================
+
+(addFait 'Temp 37)
+(addFait 'fortefievre nil)
+(newrule 'r2 T '(and (prin1 'temperature?)(setq Temp (read))) 6)
+(newrule 'r1 '(> Temp 38) '(setq fortefievre T) 5)
