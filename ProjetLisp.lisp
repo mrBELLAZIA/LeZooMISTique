@@ -180,7 +180,13 @@
 
 ;METHODE SUR LE MOTEUR D'INFERRENCE
 (defun run(listes)
-  (mapc 'appliquerRegle listes)
+  (cond 
+        ((null listes) '(le moteur a caler))
+        ((equal (eval arret) t) '(le moteur tourne a plein regime))
+        ((isActivable (car listes)) (activer (car listes)) (run (remove (car listes) listes )) )
+        ( t (run (cdr (append listes (list(car listes))) )))
+
+)
 )
 
 
@@ -211,6 +217,7 @@
 ;===========================
 
 (addFait 'Temp 37)
-(addFait 'fortefievre nil)
+;(addFait 'fortefievre nil)
 (newrule 'r2 T '(and (prin1 'temperature?)(setq Temp (read))) 6)
 (newrule 'r1 '(> Temp 38) '(setq fortefievre T) 5)
+(setArret (setq CA '(not (null fortefievre))))
