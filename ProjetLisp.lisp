@@ -155,6 +155,10 @@
   (setf (get rule  'poids) poids)
 )
 
+(defun isActivable(rule)
+  (eval (get rule 'condition))
+)
+
 ;METHODE SUR CONDITIONS D'ARRET
 (defun setArret(conditionP)
   (setq arret conditionP)
