@@ -162,8 +162,9 @@
 
 ;METHODE SUR BASE DE FAITS
 (defun addFait(nom valeur)
+  (set nom  valeur)
   (setq BF (union (list nom) (basefait)))
-  (setq nom valeur)
+
 )
 
 
