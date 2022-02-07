@@ -147,7 +147,7 @@
   regles)
 
 
-;METHODES SUR RELGES
+;METHODES SUR REGLES
 (defun newrule(rule conditionP actionP poids)
   (setq regles (union (list rule) (reglesList)))
   (setf (get rule  'condition) conditionP)
@@ -217,6 +217,7 @@
 (putrelation 'poisson_chat 'est_un 'poisson)
 (putrelation 'chat 'est_un 'felin)
 (putrelation 'chat 'mange 'poisson_chat)
+(putrelation 'chat 'mange 'mouette)
 (putrelation 'boeuf 'a_peur 'chat)
 (putrelation 'boeuf 'est_un 'bovin)
 
@@ -225,7 +226,7 @@
 ;INSTANCIATION SYSTEM EXPERT
 ;===========================
 
-(addFait 'anneeDansZoo 2)
+(addFait 'anneeDansZoo nil)
 (addFait 'reproduit nil)
 (newrule 'anciennete T '(and (prin1 '(temps passe dans le zoo ?))(setq anneeDansZoo (read))) 6)
 (newrule 'peutReproduire '(> anneeDansZoo 5) '(setq reproduit  T) 5)
