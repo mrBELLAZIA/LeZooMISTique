@@ -192,7 +192,9 @@
         ((equal (eval arret) t) '(le moteur a rempli la condition d arret))
         ((null listes) '(le moteur a fini de travailler))
         ((isAllActivable listes) '(aucune regle activable))
-        ((isActivable (car listes)) (activer (car listes)) (run (remove (car listes) listes )))
+        ((isActivable (car listes)) (activer (car listes))
+        (print (car listes))
+        (run (remove (car listes) listes )))
         ( t (run (cdr (append listes (list(car listes))) )))
 
 )
@@ -228,6 +230,10 @@
 
 (addFait 'anneeDansZoo nil)
 (addFait 'reproduit nil)
+(addFait 'nomAnimal nil)
 (newrule 'anciennete T '(and (prin1 '(temps passe dans le zoo ?))(setq anneeDansZoo (read))) 6)
-(newrule 'peutReproduire '(> anneeDansZoo 5) '(setq reproduit  T) 5)
+(newrule 'nomEspece T '(and (prin1 '(nom de l espece ?))(setq nomAnimal (read))) 6)
+(newrule 'estDansBase '(nodep nomAnimal) '(putrelation nomAnimal 'anneeDansZoo anneeDansZoo) 5)
+(newrule 'peutReproduire '(> anneeDansZoo 5) '(putrelation nomAnimal 'reproduit T) 5)
+;(newrule 'peutReproduire '(> anneeDansZoo 5) '(setq reproduit T) 5)
 (setArret '(not(null reproduit)))
